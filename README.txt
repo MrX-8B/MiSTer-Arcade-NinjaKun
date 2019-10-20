@@ -37,8 +37,9 @@
 --
 -- Joystick support.
 --
--- known bug: Sometimes BG screen glitches.
--- 
+-- known bugs: Sometimes BG screen glitches.
+--             Analog video is shifted to right.
+--
 ---------------------------------------------------------------------------------
 
                                 *** Attention ***
