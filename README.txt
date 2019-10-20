@@ -37,7 +37,8 @@
 --
 -- Joystick support.
 --
---
+-- known bug: Sometimes BG screen glitches.
+-- 
 ---------------------------------------------------------------------------------
 
                                 *** Attention ***
