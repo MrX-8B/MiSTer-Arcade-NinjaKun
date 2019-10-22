@@ -294,6 +294,7 @@ wire			iRST  = RESET | status[0] | buttons[1] | ioctl_download;
 wire  [7:0] oPIX;
 assign		POUT = {{oPIX[7:6],oPIX[1:0]},{oPIX[5:4],oPIX[1:0]},{oPIX[3:2],oPIX[1:0]}};
 
+
 FPGA_NINJAKUN GameCore
 (
 	.RESET(iRST),.MCLK(clk_49M),
@@ -328,21 +329,22 @@ module HVGEN
 reg [8:0] hcnt = 0;
 reg [8:0] vcnt = 0;
 
-assign HPOS = hcnt;
-assign VPOS = vcnt;
+assign HPOS = hcnt-16;
+assign VPOS = vcnt-16;
 
 always @(posedge PCLK) begin
 	case (hcnt)
-		255: begin HBLK <= 1; HSYN <= 0; hcnt <= hcnt+1; end
-		311: begin HSYN <= 1; hcnt <= hcnt+1; end
-		342: begin hcnt <= 471; end
-		511: begin
-			HBLK <= 0; HSYN <= 1; hcnt <= 0;
+	    15: begin HBLK <= 0; hcnt <= hcnt+1; end
+		272: begin HBLK <= 1; hcnt <= hcnt+1; end
+		311: begin HSYN <= 0; hcnt <= hcnt+1; end
+		342: begin HSYN <= 1; hcnt <= 471;    end
+		511: begin hcnt <= 0;
 			case (vcnt)
-				191: begin VBLK <= 1; vcnt <= vcnt+1; end
+				 15: begin VBLK <= 0; vcnt <= vcnt+1; end
+				207: begin VBLK <= 1; vcnt <= vcnt+1; end
 				226: begin VSYN <= 0; vcnt <= vcnt+1; end
-				233: begin VSYN <= 1; vcnt <= 483; end
-				511: begin VBLK <= 0; vcnt <= 0; end
+				233: begin VSYN <= 1; vcnt <= 483;	  end
+				511: begin vcnt <= 0; end
 				default: vcnt <= vcnt+1;
 			endcase
 		end
@@ -352,4 +354,5 @@ always @(posedge PCLK) begin
 end
 
 endmodule
+
 

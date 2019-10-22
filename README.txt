@@ -37,9 +37,13 @@
 --
 -- Joystick support.
 --
--- known bugs: Sometimes BG screen glitches.
---             Analog video is shifted to right.
 --
+-- known bugs: Sometimes BG screen glitches.
+--
+---------------------------------------------------------------------------------
+-- 23 October 2019
+---------------------------------------------------------------------------------
+-- FIXED: Analog video is shifted to right.
 ---------------------------------------------------------------------------------
 
                                 *** Attention ***

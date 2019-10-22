@@ -116,7 +116,7 @@ module NINJAKUN_FG
 );
 
 wire  [8:0] POSH  = PH+8+1;
-wire  [8:0] POSV  = PV+32+((POSH[8:3]==0)?1:0);
+wire  [8:0] POSV  = PV+32;
 
 wire  [9:0] CHRNO = {1'b0,FGVDT[13],FGVDT[7:0]};
 reg  [31:0] CDT;
@@ -162,7 +162,7 @@ module NINJAKUN_BG
 );
 
 wire  [8:0] POSH  = PH+BGSCX+2;
-wire  [8:0] POSV  = PV+BGSCY+32+((POSH[8:3]==0)?1:0);
+wire  [8:0] POSV  = PV+BGSCY+32;
 
 wire  [9:0] CHRNO = {BGVDT[15:14],BGVDT[7:0]};
 reg  [31:0] CDT;
