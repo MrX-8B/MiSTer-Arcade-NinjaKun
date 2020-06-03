@@ -38,7 +38,7 @@
 -- Joystick support.
 --
 --
--- known bugs: Sometimes BG screen glitches.
+-- known bug: Sometimes BG screen glitches.
 --
 ---------------------------------------------------------------------------------
 -- 23 October 2019
